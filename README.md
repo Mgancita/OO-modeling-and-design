@@ -1,4 +1,4 @@
-# OO-modeling-and-design
+# Object-Oriented Modeling and Design
 Diagrams and code to explain concepts written about in *Object-Oriented Modeling and Design with UML2*
 
 Citations:
