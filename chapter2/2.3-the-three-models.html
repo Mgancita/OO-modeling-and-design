@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>1.1-what-is-OO</title>
+<title>2.3-the-three-models</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13077,12 +13077,11 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-is-Object-Orientation?">What is Object-Orientation?<a class="anchor-link" href="#What-is-Object-Orientation?">&#182;</a></h2><p>The four necessary characteristics of an object-oriented language are:</p>
+<h2 id="2.3-The-Three-Models">2.3 The Three Models<a class="anchor-link" href="#2.3-The-Three-Models">&#182;</a></h2><p>Object-Orientation it's useful to model a system from three related by differente viewpoints, each capturing important aspects of the system, and all required for a complete description. The three models are:</p>
 <ol>
-<li><a href="#Identity">Identity</a></li>
-<li><a href="#Classification">Classification</a></li>
-<li><a href="#Inheritance">Inheritance</a></li>
-<li><a href="#Polymorphism">Polymorphism</a></li>
+<li>Class</li>
+<li>State</li>
+<li>Interaction</li>
 </ol>
 
 </div>
@@ -13091,79 +13090,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Identity">Identity<a class="anchor-link" href="#Identity">&#182;</a></h3><p>The ability to have two <em>objects</em> that are distinct even if all their attributes (such as name and size) are identical.</p>
+<h3 id="Lets-bring-back-Student">Lets bring back <code>Student</code><a class="anchor-link" href="#Lets-bring-back-Student">&#182;</a></h3><p>To show these different models, I'll bring back the <code>Student</code> class to explain</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1605432006344
-1605432130824
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see here that <code>x</code> and <code>y</code> are both a list of <code>[1,2,3]</code> but as they're both objects, they have a seperate <em>identity</em>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Classification">Classification<a class="anchor-link" href="#Classification">&#182;</a></h3><p>Objects with the same data structure (<em>attributes</em>) and behavior (<em>operations</em>) are grouped into a <em>class</em>. To show this idea we will create a <code>Person</code> class in order to group all people into a similar classification.<br>
-<br>
-For our class the attributes will be <code>first_name</code>, <code>last_name</code>, and <code>age</code>. The operation will be <code>say_hello</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
@@ -13185,81 +13119,8 @@ For our class the attributes will be <code>first_name</code>, <code>last_name</c
     <span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Print &#39;hello&#39;.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;hello&quot;</span>
-</pre></div>
 
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In object-oriented languages, each object is the <em>instance</em> of a class. To show that, lets make an instance!</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">honest_abe</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Abraham&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;Lincoln&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">52</span><span class="p">)</span>
-<span class="n">honest_abe</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[5]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;hello&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>He said hello! How exciting!<br>
-<br> 
-As a quick excercise, think about how you would prove that identity works for this class?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Inheritance">Inheritance<a class="anchor-link" href="#Inheritance">&#182;</a></h3><p>The sharing of attributes and operations among classes based on a hierarchical relationship. In this example we already have our <em>superclass</em> (<code>Person</code>). We will now build our first <em>subclass</em> called <code>Student</code>.<br>
-<br>
-Note: For Python, we use the <code>super()</code> object to access a class' superclass.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Class of a Student.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">gpa</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -13290,38 +13151,26 @@ Note: For Python, we use the <code>super()</code> object to access a class' supe
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Lets create an instance of the <code>Student</code> class.</p>
+<h3 id="Class-model">Class model<a class="anchor-link" href="#Class-model">&#182;</a></h3><p>The class model represents the data aspects of the system which are things like attributes. For <code>Student</code> these are <code>first_name</code>, <code>last_name</code>, <code>age</code>, and <code>gpa</code>.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">albert_einstein</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Albert&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;Einstein&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="s2">&quot;18&quot;</span><span class="p">,</span> <span class="n">gpa</span><span class="o">=</span><span class="mf">4.0</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now lets try to access an operation from the <code>Person</code> class we inheritied from.</p>
+<h3 id="State-model">State model<a class="anchor-link" href="#State-model">&#182;</a></h3><p>The state model describes the aspects of an object that are concerned with time and sequencing operations. For <code>Student</code> this is the process of first <em>instantiating</em> an instance then having it <code>say_hello()</code>.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">albert_einstein</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;last&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">gpa</span><span class="o">=</span><span class="mf">3.5</span><span class="p">)</span>
+<span class="n">student</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13334,7 +13183,7 @@ Note: For Python, we use the <code>super()</code> object to access a class' supe
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -13352,48 +13201,7 @@ Note: For Python, we use the <code>super()</code> object to access a class' supe
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>And now lets try for a attribute only accessible for a Student.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">albert_einstein</span><span class="o">.</span><span class="n">gpa</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[9]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>With this, we can see that <code>Student</code> inheritied the attributes and operations of <code>Person</code> but was able to build upon it and add it's own attributes and operations.</p>
+<h3 id="Interaction-model">Interaction model<a class="anchor-link" href="#Interaction-model">&#182;</a></h3><p>The interaction model describes interactions between objects. For <code>Student</code> we'll have to incorporate the <code>Teacher</code> class to achieve this.</p>
 
 </div>
 </div>
@@ -13401,14 +13209,14 @@ Note: For Python, we use the <code>super()</code> object to access a class' supe
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Polymorphism">Polymorphism<a class="anchor-link" href="#Polymorphism">&#182;</a></h2><p>The same operation may behave differently for different classes. To properly show this I will create another subclass of <code>Person</code> called <code>Teacher</code>.</p>
+<p>First lets bring in the <code>Teacher</code> class.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Teacher</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
@@ -13442,18 +13250,107 @@ Note: For Python, we use the <code>super()</code> object to access a class' supe
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Lets create an instance as a teacher and use the info operation</p>
+<p>Now we'll update the <code>Student</code> class to have an advisor of type <code>Teacher</code>.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Class of a Student.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">gpa</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">advisor</span><span class="p">:</span> <span class="n">Teacher</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Initialize a student.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            first_name (str): First name of the student.</span>
+<span class="sd">            last_name (str): Last name of the student.</span>
+<span class="sd">            age (int): Age of the student.</span>
+<span class="sd">            gpa (int): Grade point average of the student.</span>
+<span class="sd">            advisor (Teacher): Advisor for classes.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># This line of code passes the &#39;inheritied&#39; attributes to Person to be saved.</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">gpa</span> <span class="o">=</span> <span class="n">gpa</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">advisor</span> <span class="o">=</span> <span class="n">advisor</span>
+
+    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Give necessary information.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello, I&#39;m a student named </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s2"> and my gpa is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gpa</span><span class="si">}</span><span class="s2">.&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now lets create a teacher and make it the advisor for a student.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">socrates</span> <span class="o">=</span> <span class="n">Teacher</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Socrates&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">department</span><span class="o">=</span><span class="s2">&quot;Philosophy&quot;</span><span class="p">)</span>
+<span class="n">plato</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Plato&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">gpa</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">advisor</span><span class="o">=</span><span class="n">socrates</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plato</span><span class="o">.</span><span class="n">advisor</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;__main__.Teacher at 0x1d1db6f9b70&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">carl_sagan</span> <span class="o">=</span> <span class="n">Teacher</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Carl&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;Sagan&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">62</span><span class="p">,</span> <span class="n">department</span><span class="o">=</span><span class="s2">&quot;Astrophysics&quot;</span><span class="p">)</span>
-<span class="n">carl_sagan</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plato</span><span class="o">.</span><span class="n">advisor</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13472,40 +13369,7 @@ Note: For Python, we use the <code>super()</code> object to access a class' supe
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#34;Hello, I&#39;m a teacher named Carl Sagan and I teach in the Astrophysics department.&#34;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">albert_einstein</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[12]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#34;Hello, I&#39;m a student named Albert Einstein and my gpa is 4.0.&#34;</pre>
+<pre>&#34;Hello, I&#39;m a teacher named Socrates ? and I teach in the Philosophy department.&#34;</pre>
 </div>
 
 </div>
@@ -13517,7 +13381,7 @@ Note: For Python, we use the <code>super()</code> object to access a class' supe
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We see here that the two calls to <code>info()</code> each used a different <em>method</em>. A method is the implementation of an operation such as retreving someone's information. By having two classes, each with a different <code>info</code> method which have different implementations of the same operation, we show Polymorphism.</p>
+<p>We see that by having these interactions, we can further develop the complexity of our code with only adding a single attribute to <code>Student</code>!</p>
 
 </div>
 </div>
